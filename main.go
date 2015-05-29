@@ -40,7 +40,7 @@ func cat(filename string) {
 	}
 
 	done := false
-	readBuffer := make([]byte, 4000)
+	readBuffer := make([]byte, syscall.Getpagesize())
 	for done != true {
 		bytesRead, err := syscall.Read(fd, readBuffer)
 		if err != nil {
